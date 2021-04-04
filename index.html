@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="#">
+  <style>
+body {background-image: url('discover_turtle.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;}
+h1   {color: white;}
+p    {color: red;}
+#label{
+    width: 50%;
+}
+  </style>
+</head>
+<body>
+
+<h1>Cloud Album</h1>
+<p>This sketchy website will not only not steal all your info, but can help you manage your photo storage!</p>
+<p>Upload your photos here</p>
+<div class="container">
+  <form method="post" action="" enctype="multipart/form-data" id="myform">
+      <div >
+          <input type="file" id="file" name="file" accept = "image/*" onchange="loadFile(event)"/>
+          <input type="text" id="label" placeholder="You can define custom labels for your photo"/> 
+          <input type="button" class="button" value="Upload" id="file_upload">
+      </div>
+      <div id="log"></div>
+  </form>
+</div>
+
+<p>Search Photos with label</p>
+<div id="searchPhoto"> 
+  <div id="searchBar"> 
+      <input type="text" id="searchText" placeholder="Search Labels here"/> 
+      <button id="search" class="btn btn-primary" type="button">Search</button> 
+  </div>
+  <p>Or you can search by audio here :)!</p>
+  <button id="recordButton">Start</button>
+  <div id="progress"></div>
+</div>
+<div id="show">  </div>
+
+</body>
+<script>
+  var loadFile = function(event) {
+    var img_display = document.getElementById("show");
+	  img_display.innerHTML = "";
+    var output = document.getElementById('show');
+    var img_url = URL.createObjectURL(event.target.files[0]);
+		var new_img = document.createElement('img');
+		new_img.src = img_url;
+		new_img.width = 500;
+		img_display.appendChild(new_img);
+  };
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/aws-sdk-2.876.0.min.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="js/apigClient.js"></script>
+
+
+<script type ="module" src="js/index.js"></script>
+</html>
+

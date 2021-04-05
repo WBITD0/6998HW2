@@ -1,0 +1,19 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "1",
+  "main": "./frontend/js/main.js",
+  "dependencies": {
+    "aws-sdk": "^2.863.0",
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "webpack": "^5.25.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./frontend/js/main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

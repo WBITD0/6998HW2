@@ -1,4 +1,11 @@
-version: 0.1
+version: 0.2
+
+#env:
+#  variables:
+#    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+#  parameter-store:
+#    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+
 phases:
   pre_build:
     commands:
@@ -8,7 +15,8 @@ phases:
     commands:
       - echo Build started on `date`
       - npm run build
+
 artifacts:
   files:
     - '**/*'
-  base-directory: build
+  base-directory: 'sketchyweb'
